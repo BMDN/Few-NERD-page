@@ -6,6 +6,8 @@
   width: 100%;
   margin-bottom: $spacer;
   color: $table-color;
+  font-size: 1rem;
+  caption-side: top;
   background-color: $table-bg; // Reset for nesting within parents with `background-color`.
 
   th,
@@ -167,7 +169,7 @@
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($next, $grid-breakpoints);
-
+    caption-side: top;
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
         display: block;

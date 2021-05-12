@@ -1,6 +1,32 @@
 ---
 layout: default
 ---
+<style>
+.show-table-btn {
+  border: none;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: transparent;
+  font-weight:inherit;
+  padding: .4em 1em;
+  margin-bottom: -1px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.show-table-btn.active {
+  background-color: #FFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
+</style>
+
+<style>
+    .aff {
+      font-style: italic; 
+      font-size: 0.8rem;
+    }
+</style>
 
 <!-- Page Header -->
 {% if page.background %}
@@ -16,6 +42,7 @@ layout: default
             <h1>{{ site.title }}</h1>
             {% if site.description %}
             <span class="subheading">{{ site.description }}</span>
+            <span class="subheading"> </span>
             {% endif %}
           </div>
         </div>
@@ -23,13 +50,158 @@ layout: default
     </div>
   </header>
 
-  <div class="container">
+
+  <div class="container" id="main">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-4">
+        <div class="list-group">
+          <div class="list-group-item"><h4>About Few-NERD</h4>
+            
 
-        {{ content }}
+          <p>Few-NERD is a large-scale, fine-grained manually annotated named entity recognition dataset, which contains 8 coarse-grained types, 66 fine-grained types, 188,200 sentences, 491,711 entities and  4,601,223 tokens.
+            Three benchmark tasks are built, one is supervised (Few-NERD (SUP)) and the other two are few-shot (Few-NERD (INTRA) and Few-NERD (INTER)).
 
-        <!-- Home Post List -->
+            Few-NERD is collected by researchers from <a href = "https://www.tsinghua.edu.cn/en/"> Tsinghua University </a> and <a href = "https://damo.alibaba.com/?lang=en"> DAMO Academy, Alibaba Group</a> .
+
+            <p>For more details about Few-NERD, please refer to our ACL-IJCNLP 2021 paper:</p>
+          <p class="text-center">
+            <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info">(Ding, Xu, Chen, Wang et al. 2021)</button></a>
+          </p>
+          </div> 
+
+          <div class="list-group-item"><h4>About the Leaderboard</h4>
+            <p>To facilitate diversified research about named entities, we release <b>all the data (including the test set)</b> of the three tasks. We encourage the community to do research beyond the settings (such as open/ unsupervised/ continual NER or entity typing/ linking, etc). Enjoy!</p>
+
+            <p> But we still maintain a leaderboard to record the peer-reviewd results. </p>
+            </div> 
+
+            <div class="list-group-item"><h4>Getting started</h4>
+              <p> Download Few-NERD by following links. </p>
+              <p class="text-center">
+              <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info"> Few-NERD (SUP) </button></a> 
+            </p>
+              <p class="text-center">
+              <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info"> Few-NERD (INTRA) </button></a>
+            </p>
+              <p class="text-center">
+              <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info"> Few-NERD (INTER) </button></a>
+            </p>
+            </div> 
+    </div>
+  </div>
+
+
+
+  <div class="col-lg-8">
+      <div class="card card-outline-secondary">
+        <div class="card-header" style="padding-bottom: 0;">
+            <!--Few-NERD (SUP) Leaderboard -->  
+            <button id="show-table1" class="show-table-btn">Few-NERD (SUP)</button>
+            <button id="show-table2" class="show-table-btn">Few-NERD (INTRA)</button>
+            <button id="show-table3" class="show-table-btn">Few-NERD (INTER)</button>
+        </div>
+        <div class="card-body">
+          <table class="table table-responsive" id="table-1">
+            <caption style="caption-side: top; font-size: 1rem; margin-top: -0.8rem;">
+              The <em>supervised</em> setting is a standard NER task.
+            </caption>
+            <thead class="thead-light">
+              <tr>
+                <th scope="col" rowspan="2"></th>
+                <th scope="col" rowspan="2" class="align-middle text-center" style="font-size: 0.95rem">Model</th>
+                <th scope="col" rowspan="2" class="align-middle text-center" style="font-size: 0.95rem">&nbsp; Code&nbsp; </th>
+                <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">&nbsp;&nbsp;&nbsp;   Precision &nbsp;&nbsp;&nbsp;   </th>
+                <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">&nbsp;&nbsp;&nbsp;   Recall &nbsp;&nbsp;&nbsp;   </th>
+                <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">&nbsp;&nbsp;&nbsp;   F1-Measure &nbsp;&nbsp;&nbsp;   </th>
+              </tr>
+         
+            </thead>
+            <tbody><tr>
+                <td scope="row" class="align-middle text-center">1<br>
+                  <span class="badge badge-secondary">Feb 27, 2021</span></td>
+                <td class="align-middle text-center">BERT-Tagger<br>
+                  <span class="aff">Few-NERD paper</span><br></td>
+                <td class="align-middle text-center"><div class="crossed"><i class="far fa-file text-danger"></i></div></td>
+                <td class="align-middle text-center"><strong>70.72</strong></td>
+                <td class="align-middle text-center"><strong>83.53</strong></td>
+                <td class="align-middle text-center"><strong>64.30</strong></td>
+   
+              </tr></tbody>
+          </table>
+
+          <table class="table table-responsive" id="table-2">
+              <caption style="caption-side: top; font-size: 1rem; margin-top: -0.8rem;">
+                  The <em>few-shot (intra)</em> setting is a few-shot NER task across different coarse-grained types.
+                </caption>
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="2"></th>
+                  <th scope="col" rowspan="2" class="align-middle text-center" style="font-size: 0.95rem">Model</th>
+                  <th scope="col" rowspan="2" class="align-middle text-center" style="font-size: 0.95rem">Code</th>
+                  <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">5 way 1~2 shot</th>
+                  <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">5 way 5~10 shot</th>
+                  <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">10 way 1~2 shot</th>
+                  <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">10 way 5~10 shot</th>
+                </tr>
+
+              </thead>
+              <tbody><tr>
+                  <td scope="row" class="align-middle text-center">1<br>
+                    <span class="badge badge-secondary">Feb 27, 2021</span></td>
+                  <td class="align-middle text-center">ProtoBERT<br>
+                    <span class="aff">Few-NERD paper</span><br></td>
+                  <td class="align-middle text-center"><div class="crossed"><i class="far fa-file text-danger"></i></div></td>
+
+                </tr></tbody>
+            </table>
+
+
+            <table class="table table-responsive" id="table-3">
+                <caption style="caption-side: top; font-size: 1rem; margin-top: -0.8rem;">
+                    The <em>few-shot (inter)</em> setting is a few-shot NER task within coarse-grained types.
+                  </caption>
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" rowspan="2"></th>
+                        <th scope="col" rowspan="2" class="align-middle text-center" style="font-size: 0.95rem">Model</th>
+                        <th scope="col" rowspan="2" class="align-middle text-center" style="font-size: 0.95rem">Code</th>
+                        <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">5 way 1~2 shot</th>
+                        <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">5 way 5~10 shot</th>
+                        <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">10 way 1~2 shot</th>
+                        <th scope="col" colspan="1" class="text-center" style="font-size: 0.95rem">10 way 5~10 shot</th>
+                      </tr>
+                </thead>
+                <tbody><tr>
+                    <td scope="row" class="align-middle text-center">1<br>
+                      <span class="badge badge-secondary">Feb 27, 2021</span></td>
+                    <td class="align-middle text-center">ProtoBERT<br>
+                      <span class="aff">Few-NERD paper</span><br></td>
+                    <td class="align-middle text-center"><div class="crossed"><i class="far fa-file text-danger"></i></div></td>
+
+                  </tr></tbody>
+              </table>
+        </div>
+      </div>
+
+      <script>
+        var show_table = function(idx) {
+          var all_tables = document.querySelectorAll(".table");
+          for (var i = 0; i < all_tables.length; ++ i) {
+            all_tables[i].style.display = "none";
+            document.querySelector("#show-table" + (i + 1).toString()).classList.remove("active");
+          }
+          all_tables[idx].style.display = "block";
+          document.querySelector("#show-table" + (idx + 1).toString()).classList.add("active");
+        }
+        document.querySelector("#show-table1").addEventListener("click", ()=>{ show_table(0) } );
+        document.querySelector("#show-table2").addEventListener("click", ()=>{ show_table(1) } );
+        document.querySelector("#show-table3").addEventListener("click", ()=>{ show_table(2) } );
+        show_table(0);
+      </script>
+ 
+  
+
+        <!-- Home Post List
         {% for post in site.posts limit : 5 %}
 
         <article class="post-preview">
@@ -54,12 +226,12 @@ layout: default
 
         <hr>
 
-        {% endfor %}
+        {% endfor %} -->
 
         <!-- Pager -->
-        <div class="clearfix">
+        <!-- <div class="clearfix">
           <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
-        </div>
+        </div> -->
 
       </div>
     </div>
