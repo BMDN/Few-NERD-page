@@ -19,6 +19,33 @@ layout: default
   border-left: 1px solid rgba(0, 0, 0, 0.125);
   border-right: 1px solid rgba(0, 0, 0, 0.125);
 }
+
+.color-lump{
+    width: 10px;
+    height: 10px;
+    background-color: #33cd5f;
+}
+
+.actionBtn {
+  display: block;
+  margin: 10px auto;
+  max-width: 350px;
+  width: 94%;
+  vertical-align: middle;
+  background-color: #6e54da;
+  color: #fff !important;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid #a1201c;
+  border-radius: 20px;
+  transition: all 0.5s;
+  white-space: normal;
+}
+.inverseBtn {
+  background-color: #fff;
+  color: #a1201c !important;
+}
 </style>
 
 <style>
@@ -61,32 +88,55 @@ layout: default
           <p>Few-NERD is a large-scale, fine-grained manually annotated named entity recognition dataset, which contains 8 coarse-grained types, 66 fine-grained types, 188,200 sentences, 491,711 entities and  4,601,223 tokens.
             Three benchmark tasks are built, one is supervised (Few-NERD (SUP)) and the other two are few-shot (Few-NERD (INTRA) and Few-NERD (INTER)).
 
-            Few-NERD is collected by researchers from <a href = "https://www.tsinghua.edu.cn/en/"> Tsinghua University </a> and <a href = "https://damo.alibaba.com/?lang=en"> DAMO Academy, Alibaba Group</a> .
+            Few-NERD is collected by researchers from <a href = "https://www.tsinghua.edu.cn/en/" style="color: darkred;"> Tsinghua University </a> and <a href = "https://damo.alibaba.com/?lang=en" style="color: darkred;"> DAMO Academy, Alibaba Group</a> .
 
             <p>For more details about Few-NERD, please refer to our ACL-IJCNLP 2021 paper:</p>
           <p class="text-center">
-            <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info">(Ding, Xu, Chen, Wang et al. 2021)</button></a>
+            <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info">(Ding, Xu, Chen et al. 2021)</button></a>
           </p>
           </div> 
 
           <div class="list-group-item"><h4>About the Leaderboard</h4>
-            <p>To facilitate diversified research about named entities, we release <b>all the data (including the test set)</b> of the three tasks. We encourage the community to do research beyond the settings (such as open/ unsupervised/ continual NER or entity typing/ linking, etc). Enjoy!</p>
+            <p>To facilitate diversified research about named entities, we release <b>all the data (including the test set)</b> of the three tasks. We encourage the community to do research beyond these settings (such as open/ unsupervised/ continual NER or entity typing/ linking, etc). Enjoy!</p>
 
             <p> But we still maintain a leaderboard to record the peer-reviewd results. </p>
             </div> 
 
             <div class="list-group-item"><h4>Getting started</h4>
-              <p> Download Few-NERD by following links. </p>
+              <p> Download Few-NERD by following links:
               <p class="text-center">
-              <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info"> Few-NERD (SUP) </button></a> 
+              <a class="btn actionBtn inverseBtn" href="/SQuAD-explorer/dataset/train-v2.0.json" download="">Few-NERD (SUP) (40 MB)</a>
+              <a class="btn actionBtn inverseBtn" href="/SQuAD-explorer/dataset/train-v2.0.json" download="">Few-NERD (INTRA) (40 MB)</a>
+              <a class="btn actionBtn inverseBtn" href="/SQuAD-explorer/dataset/train-v2.0.json" download="">Few-NERD (INTER) (40 MB)</a>
+              
+              <p> As the sampling strategy has huge impact in few-shot learning, thus we also release a data <b> sampled by us </b>, the results of the paper and the leaderboard are produced by this data.
+              <!-- <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info" style="background-color: rgb(129, 73, 182); font-weight: 600; width: 9rem; height: 4.5rem;"> Few-NERD (SUP) </button></a> 
+              <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info" style="background-color: rgb(35, 117, 194); font-weight: 600; width: 9rem;""> Few-NERD (SUP) </button></a> 
+            </p> -->
             </p>
-              <p class="text-center">
+              <!-- <p class="text-center">
               <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info"> Few-NERD (INTRA) </button></a>
             </p>
               <p class="text-center">
               <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info"> Few-NERD (INTER) </button></a>
-            </p>
+            </p> -->
             </div> 
+            <div class="list-group-item"><h4>Connection</h4>
+              <a style="font-size: 1rem;"> If you have any questions about Few-NERD, or you want to update the leaderboard, feel free to email to the authors: </a> <br>
+              <ul>
+                <li style="color: rgb(125, 147, 168);"> <a href="mailto:dingn18@mails.tsinghua.edu.cn" style="font-size: 0.95rem; color:darkred;"> dingn18@mails.tsinghua.edu.cn; </a></li>
+                <li style="color: rgb(125, 147, 168);"><a href="mailto:yl-chen17@mails.tsinghua.edu.cn" style="font-size: 0.95rem; color: darkred;"> yl-chen17@mails.tsinghua.edu.cn;  </a>  </li>
+              </ul>
+              <a style="font-size: 1rem;"> If you use Few-NERD in your work, please cite the paper:</a>  <br> <br>
+              <pre style="font-size: 0.6rem; background-color: rgb(245, 238, 238);">@inproceedings{ding2021few,
+  title={Few-NERD:A Few-shot Named Entity Recognition Dataset},
+  author={Ding, Ning and Xu, Guangwei and Chen, Yulin, and Wang, Xiaobin and Han, Xu and Xie, Pengjun and Zheng, Hai-Tao and Liu, Zhiyuan},
+  booktitle={ACL-IJCNLP},
+  year={2021}
+}</pre>
+            </div> 
+  
+             
     </div>
   </div>
 
@@ -122,9 +172,9 @@ layout: default
                 <td class="align-middle text-center">BERT-Tagger<br>
                   <span class="aff">Few-NERD paper</span><br></td>
                 <td class="align-middle text-center"><div class="crossed"><i class="far fa-file text-danger"></i></div></td>
-                <td class="align-middle text-center"><strong>70.72</strong></td>
-                <td class="align-middle text-center"><strong>83.53</strong></td>
-                <td class="align-middle text-center"><strong>64.30</strong></td>
+                <td class="align-middle text-center"><strong>67.39</strong></td>
+                <td class="align-middle text-center"><strong>70.45</strong></td>
+                <td class="align-middle text-center"><strong>68.88</strong></td>
    
               </tr></tbody>
           </table>
@@ -151,7 +201,10 @@ layout: default
                   <td class="align-middle text-center">ProtoBERT<br>
                     <span class="aff">Few-NERD paper</span><br></td>
                   <td class="align-middle text-center"><div class="crossed"><i class="far fa-file text-danger"></i></div></td>
-
+                  <td class="align-middle text-center"><strong>16.73</strong></td>
+                  <td class="align-middle text-center"><strong>28.21</strong></td>
+                  <td class="align-middle text-center"><strong>12.48</strong></td>
+                  <td class="align-middle text-center"><strong>21.52</strong></td>
                 </tr></tbody>
             </table>
 
@@ -177,7 +230,10 @@ layout: default
                     <td class="align-middle text-center">ProtoBERT<br>
                       <span class="aff">Few-NERD paper</span><br></td>
                     <td class="align-middle text-center"><div class="crossed"><i class="far fa-file text-danger"></i></div></td>
-
+                    <td class="align-middle text-center"><strong>31.84</strong></td>
+                    <td class="align-middle text-center"><strong>41.86</strong></td>
+                    <td class="align-middle text-center"><strong>25.51</strong></td>
+                    <td class="align-middle text-center"><strong>36.04</strong></td>
                   </tr></tbody>
               </table>
         </div>

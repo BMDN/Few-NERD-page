@@ -9,8 +9,8 @@
   // No need to set list-style: none; since .list-group-item is block level
   padding-left: 0rem; // reset padding because ul and ol
   margin-bottom: 0;
-  margin-left: -3rem;
-  width: 30rem;
+  margin-left: 0rem;
+  width: 23rem;
   @include border-radius($list-group-border-radius);
 }
 

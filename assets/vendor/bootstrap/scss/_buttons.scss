@@ -11,8 +11,10 @@
   color: $body-color;
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  white-space: $btn-white-space;
   vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  white-space: $btn-white-space;
   user-select: none;
   background-color: transparent;
   border: $btn-border-width solid transparent;
