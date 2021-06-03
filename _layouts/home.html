@@ -97,20 +97,20 @@ layout: default
           </p>
           </div> 
 
-          <div class="list-group-item"><h4>About the Leaderboard</h4>
-            <p>To facilitate diversified research about named entities, we release <b>all the data (including the test set)</b> of the three tasks. We encourage the community to do research beyond these settings (such as open/ unsupervised/ continual NER or entity typing/ linking, etc). Enjoy!<br>
-            But we still maintain a leaderboard to record the peer-reviewd results. </p>
-            </div> 
 
-            <div class="list-group-item"><h4>Getting started</h4>
-              <p> Few-NERD is distributed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="color: darkred;"> CC BY-SA 4.0 license </a>, download Few-NERD by following links:
+
+            <div class="list-group-item"><h4>Getting started</h4> <br>
+              <h5>Raw Datasets</h5>
+              <p> Few-NERD is distributed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="color: darkred;"> CC BY-SA 4.0 license </a>, download Few-NERD <b> raw </b> datasets by following links:
               <p class="text-center">
               <a class="btn actionBtn inverseBtn" href="https://cloud.tsinghua.edu.cn/f/09265750ae6340429827/?dl=1" download="">Few-NERD (SUP) (14 MB)</a>
               <a class="btn actionBtn inverseBtn" href="https://cloud.tsinghua.edu.cn/f/a0d3efdebddd4412b07c/?dl=1" download="">Few-NERD (INTRA) (12 MB)</a>
               <a class="btn actionBtn inverseBtn" href="https://cloud.tsinghua.edu.cn/f/165693d5e68b43558f9b/?dl=1" download="">Few-NERD (INTER) (12 MB)</a>
-              
-              <p> As the sampling strategy has huge impact in few-shot learning, thus we also release a data <b> sampled by us </b>, the results of the paper and the leaderboard are produced by this data (to be uploaded).
-              
+           
+              <h5>Sampled Datasets</h5>
+              <p> As the sampling strategy has considerable impact in few-shot learning, thus we also release a data <b> sampled by us </b> (using the <code> util/fewshotsampler.py </code> in our <a href = 'https://github.com/thunlp/Few-NERD' style="color: darkred;">code</a>). The files of these sampled data are named such <code>train/dev/test_N_K.json</code>. We sampled 20000, 1000, 5000 episodes for train, dev, test, respectively. The results of the paper and the leaderboard are produced by this data.
+
+                <a class="btn actionBtn inverseBtn" href="https://cloud.tsinghua.edu.cn/f/8483dc1a34da4a34ab58/?dl=1" download="">Sampled Few-NERD (568 MB)</a>
               <p> Check out the <a href = 'https://github.com/thunlp/Few-NERD' style="color: darkred;">Github repository</a> for a comprehensive guide to use Few-NERD.
         
               <!-- <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info" style="background-color: rgb(129, 73, 182); font-weight: 600; width: 9rem; height: 4.5rem;"> Few-NERD (SUP) </button></a> 
@@ -124,6 +124,11 @@ layout: default
               <a href="https://arxiv.org/pdf/1809.09600.pdf"><button type="button" class="btn btn-info"> Few-NERD (INTER) </button></a>
             </p> -->
             </div> 
+
+            <div class="list-group-item"><h4>About the Leaderboard</h4>
+              <p>To facilitate diversified research about named entities, we release <b>all the data (including the test set)</b> of the three tasks. We encourage the community to do research beyond these settings (such as open/ unsupervised/ continual NER or entity typing/ linking, etc). Enjoy!<br>
+              But we still maintain a leaderboard to record the peer-reviewd results. </p>
+              </div> 
             <div class="list-group-item"><h4>Connection</h4>
               <a style="font-size: 1rem;"> If you have any questions about Few-NERD, or you want to update the leaderboard, feel free to email to the authors: </a> <br>
               <ul>
@@ -131,7 +136,7 @@ layout: default
                 <li style="color: rgb(226, 163, 152);"><a href="mailto:yl-chen17@mails.tsinghua.edu.cn" style="font-size: 0.95rem; color: darkred;"> yl-chen17@mails.tsinghua.edu.cn;  </a>  </li>
               </ul>
               <a style="font-size: 1rem;"> If you use Few-NERD in your work, please cite the paper:</a>  <br> <br>
-              <pre style="font-size: 0.6rem; background-color: rgb(245, 238, 238);">@inproceedings{ding2021few,
+              <pre style="font-size: 0.8rem; background-color: rgb(245, 238, 238);">@inproceedings{ding2021few,
   title={Few-NERD:A Few-shot Named Entity Recognition Dataset},
   author={Ding, Ning and Xu, Guangwei and Chen, Yulin, and Wang, Xiaobin and Han, Xu and Xie, Pengjun and Zheng, Hai-Tao and Liu, Zhiyuan},
   booktitle={ACL-IJCNLP},
